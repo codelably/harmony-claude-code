@@ -1,0 +1,45 @@
+{
+  "name": "oneskill",
+  "version": "0.1.0",
+  "description": "Meta-skill manager for AI coding agents",
+  "type": "module",
+  "main": "./dist/cli.js",
+  "bin": {
+    "oneskill": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "SKILL.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "keywords": [
+    "skills",
+    "ai",
+    "agents",
+    "meta-skill",
+    "codex",
+    "gemini",
+    "claude"
+  ],
+  "author": "OneSkill Contributors",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=20.6.0"
+  },
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "commander": "^12.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.9.1",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.3"
+  }
+}
