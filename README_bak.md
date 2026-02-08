@@ -1,5 +1,8 @@
+**语言：** [English](README.md) | **简体中文** | [繁體中文](docs/zh-TW/README.md)
+
 # Everything Claude Code
 
+[![Stars](https://img.shields.io/github/stars/affaan-m/everything-claude-code?style=flat)](https://github.com/affaan-m/everything-claude-code/stargazers)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![Shell](https://img.shields.io/badge/-Shell-4EAA25?logo=gnu-bash&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white)
@@ -8,9 +11,93 @@
 
 ---
 
-**来自 Anthropic 黑客松获胜者的 Claude Code 配置全集定制。**
+<div align="center">
 
-包含生产级的智能体（Agents）、技能（Skills）、钩子（Hooks）、命令（Commands）、规则（Rules）以及 MCP 配置。这些配置源自 10 个多月在构建真实产品过程中的高强度日常使用与演进。加入了鸿蒙应用开发规范和专用智能体等。
+**🌐 Language / 语言 / 語言**
+
+[**English**](README.md) | [简体中文](README.zh-CN.md) | [繁體中文](docs/zh-TW/README.md)
+
+</div>
+
+---
+
+**来自 Anthropic 黑客松获胜者的 Claude Code 配置全集。**
+
+包含生产级的智能体（Agents）、技能（Skills）、钩子（Hooks）、命令（Commands）、规则（Rules）以及 MCP 配置。这些配置源自 10 个多月在构建真实产品过程中的高强度日常使用与演进。
+
+---
+
+## 指南文档
+
+本仓库仅包含原始代码。以下指南将详细解释一切：
+
+<table>
+<tr>
+<td width="50%">
+<a href="https://x.com/affaanmustafa/status/2012378465664745795">
+<img src="https://github.user-attachments.assets/1a471488-59cc-425b-8345-5245c7efbcef" alt="Everything Claude Code 简明指南" />
+</a>
+</td>
+<td width="50%">
+<a href="https://x.com/affaanmustafa/status/2014040193557471352">
+<img src="https://github.user-attachments.assets/c9ca43bc-b149-427f-b551-af6840c368f0" alt="Everything Claude Code 深度指南" />
+</a>
+</td>
+</tr>
+<tr>
+<td align="center"><b>简明指南 (Shorthand Guide)</b><br/>安装、基础、哲学。<b>请先阅读此篇。</b></td>
+<td align="center"><b>深度指南 (Longform Guide)</b><br/>Token 优化、记忆持久化、评测（Evals）、并行化。</td>
+</tr>
+</table>
+
+| 主题 | 你将学到 |
+|-------|-------------------|
+| Token 优化 | 模型选择、系统提示词精简、后台进程 |
+| 记忆持久化 | 跨会话自动保存/加载上下文的钩子（Hooks） |
+| 持续学习 | 从会话中自动提取模式并转化为可重用的技能（Skills） |
+| 验证循环 | 检查点（Checkpoint）vs 持续评测、评分器类型、pass@k 指标 |
+| 并行化 | Git worktrees、级联方法、何时扩展实例 |
+| 子智能体编排 | 上下文问题、迭代检索模式 |
+
+---
+
+## 🚀 快速开始
+
+不到 2 分钟即可完成配置：
+
+### 第一步：安装插件
+
+```bash
+# 添加市场
+/plugin marketplace add affaan-m/everything-claude-code
+
+# 安装插件
+/plugin install everything-claude-code@everything-claude-code
+```
+
+### 第二步：安装规则（必选）
+
+> ⚠️ **重要提示：** Claude Code 插件无法自动分发 `rules`。请手动安装：
+
+```bash
+# 首先克隆仓库
+git clone https://github.com/affaan-m/everything-claude-code.git
+
+# 复制规则（适用于所有项目）
+cp -r everything-claude-code/rules/* ~/.claude/rules/
+```
+
+### 第三步：开始使用
+
+```bash
+# 尝试一个命令
+/plan "Add user authentication"
+
+# 查看可用命令
+/plugin list everything-claude-code@everything-claude-code
+```
+
+✨ **大功告成！** 你现在可以使用 15+ 个智能体、30+ 个技能和 20+ 个命令了。
 
 ---
 
@@ -51,7 +138,7 @@ node scripts/setup-package-manager.js --detect
 
 ## 📦 内容清单
 
-本仓库是一个 **Claude Code 插件** 
+本仓库是一个 **Claude Code 插件** —— 你可以直接安装，也可以手动复制组件。
 
 ```
 everything-claude-code/
@@ -61,7 +148,6 @@ everything-claude-code/
 |
 |-- agents/           # 用于任务委派的专业化子智能体（Subagents）
 |   |-- planner.md           # 功能实现规划
-|   |-- harmonyos-app-resolver # 鸿蒙应用开发
 |   |-- architect.md         # 系统设计决策
 |   |-- tdd-guide.md         # 测试驱动开发（TDD）
 |   |-- code-reviewer.md     # 质量与安全审查
@@ -109,7 +195,6 @@ everything-claude-code/
 |   |-- evolve.md           # /evolve - 将直觉聚类为技能（新增）
 |
 |-- rules/            # 必须遵守的指南（需复制到 ~/.claude/rules/）
-|   |-- harmonyos.md        # 鸿蒙应用开发规范
 |   |-- security.md         # 强制性安全检查
 |   |-- coding-style.md     # 不可变性、文件组织
 |   |-- testing.md          # TDD、80% 覆盖率要求
@@ -235,7 +320,57 @@ Duplicate hooks file detected: ./hooks/hooks.json resolves to already-loaded fil
 
 ## 📥 安装
 
-### 🔧 手动安装（推荐）
+### 选项 1：作为插件安装（推荐）
+
+使用本仓库最简单的方式 —— 作为 Claude Code 插件安装：
+
+```bash
+# 将此仓库添加为市场
+/plugin marketplace add affaan-m/everything-claude-code
+
+# 安装插件
+/plugin install everything-claude-code@everything-claude-code
+```
+
+或者直接添加到你的 `~/.claude/settings.json`：
+
+```json
+{
+  "extraKnownMarketplaces": {
+    "everything-claude-code": {
+      "source": {
+        "source": "github",
+        "repo": "affaan-m/everything-claude-code"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "everything-claude-code@everything-claude-code": true
+  }
+}
+```
+
+安装后即可立即使用所有命令、智能体、技能和钩子。
+
+> **注意：** Claude Code 插件系统目前不支持通过插件分发 `rules`（[上游限制](https://code.claude.com/docs/en/plugins-reference)）。你需要手动安装规则：
+>
+> ```bash
+> # 首先克隆仓库
+> git clone https://github.com/affaan-m/everything-claude-code.git
+>
+> # 选项 A：用户级规则（适用于所有项目）
+> cp -r everything-claude-code/rules/* ~/.claude/rules/
+>
+> # 选项 B：项目级规则（仅适用于当前项目）
+> mkdir -p .claude/rules
+> cp -r everything-claude-code/rules/* .claude/rules/
+> ```
+
+---
+
+### 🔧 选项 2：手动安装
+
+如果你更喜欢手动控制安装内容：
 
 ```bash
 # 克隆仓库
@@ -390,6 +525,21 @@ node tests/hooks/hooks.test.js
 2. 根据你的技术栈进行修改
 3. 移除你不需要的部分
 4. 添加你自己的模式
+
+---
+
+## 🌟 Star 历史
+
+[![Star History Chart](https://api.star-history.com/svg?repos=affaan-m/everything-claude-code&type=Date)](https://star-history.com/#affaan-m/everything-claude-code&Date)
+
+---
+
+## 🔗 相关链接
+
+- **简明指南 (从这里开始)：** [Everything Claude Code 简明指南](https://x.com/affaanmustafa/status/2012378465664745795)
+- **深度指南 (进阶必读)：** [Everything Claude Code 深度指南](https://x.com/affaanmustafa/status/2014040193557471352)
+- **关注我：** [@affaanmustafa](https://x.com/affaanmustafa)
+- **zenith.chat:** [zenith.chat](https://zenith.chat)
 
 ---
 
