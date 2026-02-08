@@ -1,4 +1,4 @@
-# Everything Claude Code
+# Harmony Claude Code
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![Shell](https://img.shields.io/badge/-Shell-4EAA25?logo=gnu-bash&logoColor=white)
@@ -54,7 +54,7 @@ node scripts/setup-package-manager.js --detect
 本仓库是一个 **Claude Code 插件** 
 
 ```
-everything-claude-code/
+harmony-claude-code/
 |-- .claude-plugin/   # 插件和市场清单文件
 |   |-- plugin.json         # 插件元数据和组件路径
 |   |-- marketplace.json    # 用于 /plugin marketplace add 的市场目录
@@ -239,19 +239,19 @@ Duplicate hooks file detected: ./hooks/hooks.json resolves to already-loaded fil
 
 ```bash
 # 克隆仓库
-git clone https://github.com/affaan-m/everything-claude-code.git
+git clone https://github.com/codelably/harmony-claude-code.git
 
 # 将智能体（Agents）复制到你的 Claude 配置中
-cp everything-claude-code/agents/*.md ~/.claude/agents/
+cp harmony-claude-code/agents/*.md ~/.claude/agents/
 
 # 复制规则（Rules）
-cp everything-claude-code/rules/*.md ~/.claude/rules/
+cp harmony-claude-code/rules/*.md ~/.claude/rules/
 
 # 复制命令（Commands）
-cp everything-claude-code/commands/*.md ~/.claude/commands/
+cp harmony-claude-code/commands/*.md ~/.claude/commands/
 
 # 复制技能（Skills）
-cp -r everything-claude-code/skills/* ~/.claude/skills/
+cp -r harmony-claude-code/skills/* ~/.claude/skills/
 ```
 
 #### 将钩子（Hooks）添加到 settings.json
