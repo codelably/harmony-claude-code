@@ -252,6 +252,12 @@ cp harmony-claude-code/commands/*.md ~/.claude/commands/
 
 # 复制技能（Skills）
 cp -r harmony-claude-code/skills/* ~/.claude/skills/
+
+# 复制脚本（Scripts）
+cp -r harmony-claude-code/scripts/* ~/.claude/scripts/
+
+# 复制用户级 CLAUDE.md
+cp -r harmony-claude-code/examples/user-CLAUDE.md ~/.claude/CLAUDE.md
 ```
 
 #### 将钩子（Hooks）添加到 settings.json
