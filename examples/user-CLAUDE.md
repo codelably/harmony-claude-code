@@ -19,6 +19,7 @@
 3. **先计划后执行（Plan Before Execute）**：对复杂操作使用计划模式（Plan Mode）
 4. **测试驱动（Test-Driven）**：在实现前编写测试
 5. **安全第一（Security-First）**：绝不妥协安全性
+6. **语言统一（Unification Of Language）**：请始终用中文回复
 
 ---
 
@@ -85,10 +86,9 @@
 
 ## 编辑器集成（Editor Integration）
 
-我使用 Zed 作为我的主要编辑器：
+我使用 Visual Studio Code 作为我的主要编辑器：
 - 智能体面板（Agent Panel）用于文件追踪
-- CMD+Shift+R 用于命令面板（Command Palette）
-- 启用 Vim 模式
+- Ctrl + Shift + P 用于命令面板（Command Palette）
 
 ---
 
