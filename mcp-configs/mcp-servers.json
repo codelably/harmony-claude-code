@@ -68,7 +68,7 @@
     },
     "context7": {
       "command": "npx",
-      "args": ["-y", "@context7/mcp-server"],
+      "args": ["-y", "@upstash/context7-mcp"],
       "description": "Live documentation lookup"
     },
     "magic": {
@@ -80,6 +80,16 @@
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/your/projects"],
       "description": "Filesystem operations (set your path)"
+    },
+    "brave-search": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-brave-search"
+      ],
+      "env": {
+        "BRAVE_API_KEY": "your_brave_api_key"
+      }
     }
   },
   "_comments": {
